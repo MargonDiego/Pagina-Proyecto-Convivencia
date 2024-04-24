@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nuevo Estudiante - Sistema de Convivencia Escolar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="dashboard.html">
+                <img src="Logo-colegiosxxi.svg" alt="Logo del Colegio" style="max-height: 50px;">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="dashboard.html">Inicio</a>
+                <a class="navbar-item" href="students.html">Fichas de Estudiantes</a>
+                <a class="navbar-item" href="logbook.html">Bitácora-Calendario</a>
+                <a class="navbar-item" href="settings.html">Configuraciones</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="index.html">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Agregar Nuevo Estudiante</h1>
+            <form>
+                <div class="field">
+                    <label class="label">Nombre Completo</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Nombre Completo">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Fecha de Nacimiento</label>
+                    <div class="control">
+                        <input class="input" type="date">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Curso</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Curso actual">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Correo Electrónico</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Correo Electrónico">
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-link">Guardar</button>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-link is-light">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="buttons">
+        <a class="button is-light" href="students.html">Volver al listado</a>
+    </div>
+</body>
+</html>

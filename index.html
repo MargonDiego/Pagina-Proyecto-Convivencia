@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Sistema de Convivencia Escolar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        .hero.is-info {
+            background: #209cee;  /* Un color azul suave que es parte de la paleta de Bulma */
+        }
+        .hero-body {
+            padding: 2rem 1.5rem;
+        }
+        .logo {
+            height: 100px; /*ajustable a la necesidad */
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-info is-bold">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <img src="Logo-colegiosxxi.svg" alt="Logo del Colegio" class="logo"> <!-- Logo en formato SVG -->
+                <h1 class="title">
+                    Sistema de Convivencia Escolar
+                </h1>
+                <h2 class="subtitle">
+                    Inicio de Sesión
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <form action="dashboard.html" method="POST" class="box">
+                    <div class="field">
+                        <label for="username" class="label">Nombre de Usuario</label>
+                        <div class="control has-icons-left">
+                            <input type="text" name="username" id="username" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="password" class="label">Contraseña</label>
+                        <div class="control has-icons-left">
+                            <input type="password" name="password" id="password" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button type="submit" class="button is-success">
+                            Iniciar Sesión
+                        </button>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                        </p>
+                        <p class="control">
+                            <a href="#">Registrar una nueva cuenta</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

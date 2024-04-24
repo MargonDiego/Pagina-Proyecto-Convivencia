@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora-Calendario - Sistema de Convivencia Escolar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <style>   
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .modal.is-active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="dashboard.html">
+                <img src="Logo-colegiosxxi.svg" alt="Logo del Colegio" style="max-height: 50px;">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="dashboard.html">Inicio</a>
+                <a class="navbar-item" href="students.html">Fichas de Estudiantes</a>
+                <a class="navbar-item" href="logbook.html">Bitácora-Calendario</a>
+                <a class="navbar-item" href="settings.html">Configuraciones</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="index.html">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Bitácora-Calendario</h1>
+            <div id='calendar'></div>
+        </div>
+    </section>
+
+    <!-- Modal for Event Form -->
+    <div class="modal" id="event-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Detalles de la Sesión</p>
+                <button class="delete" aria-label="close" onclick="closeModal()"></button>
+            </header>
+            <section class="modal-card-body">
+                <form id="event-form">
+                    <div class="field">
+                        <label class="label">Estudiante:</label>
+                        <div class="control">
+                            <input class="input" type="text" id="student-name" placeholder="Nombre del Estudiante">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Fecha y Hora:</label>
+                        <div class="control">
+                            <input class="input" type="datetime-local" id="session-datetime">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Descripción:</label>
+                        <div class="control">
+                            <textarea class="textarea" id="session-description" placeholder="Descripción de la sesión"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" onclick="saveEvent()">Guardar</button>
+                <button class="button" onclick="closeModal()">Cancelar</button>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultView: 'month',
+                navLinks: true,
+                selectable: true,
+                selectHelper: true,
+                editable: true,
+                eventLimit: true,
+                select: function(start, end) {
+                    // Abre el elemento modal
+                    document.getElementById('session-datetime').value = moment(start).format('YYYY-MM-DDTHH:mm');
+                    document.getElementById('event-modal').classList.add('is-active');
+                },
+                eventClick: function(calEvent, jsEvent, view) {
+                    // LLenado a modo de ejmplo
+                    document.getElementById('student-name').value = calEvent.title;
+                    document.getElementById('session-datetime').value = moment(calEvent.start).format('YYYY-MM-DDTHH:mm');
+                    document.getElementById('session-description').value = calEvent.description;
+                    document.getElementById('event-modal').classList.add('is-active');
+                }
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('event-modal').classList.remove('is-active');
+        }
+
+        function saveEvent() {
+            // Posible logica para guardar el evento
+            $('#calendar').fullCalendar('renderEvent', {
+                title: document.getElementById('student-name').value,
+                start: document.getElementById('session-datetime').value,
+                description: document.getElementById('session-description').value
+            }, true); // 
+            closeModal();
+        }
+    </script>
+</body>
+</html>

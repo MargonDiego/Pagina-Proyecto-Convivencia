@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión de Tutoría - Detalles</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="dashboard.html">
+                <img src="Logo-colegiosxxi.svg" alt="Logo del Colegio" style="max-height: 50px;">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="dashboard.html">Inicio</a>
+                <a class="navbar-item" href="students.html">Fichas de Estudiantes</a>
+                <a class="navbar-item" href="logbook.html">Bitácora-Calendario</a>
+                <a class="navbar-item" href="settings.html">Configuraciones</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="index.html">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Detalles de la Sesión de Tutoría</h1>
+            <div class="box">
+                <h2 class="subtitle">Fecha: 7 de Abril, 2024</h2>
+                <form>
+                    <div class="field">
+                        <label class="label">Descripción:</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Editar descripción">Revisión de progreso académico.</textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Cargar Documento:</label>
+                        <div class="control">
+                            <input class="input" type="file">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="button is-link">Guardar Cambios</button>
+                    </div>
+                </form>
+                <h2 class="subtitle">Documentos Adjuntos</h2>
+                <ul>
+                    <li><a href="download/document1.pdf">Reporte de Progreso.pdf</a></li>
+                    <li><a href="download/document2.pdf">Plan de Estudios Actualizado.pdf</a></li>
+                </ul>
+            </div>
+            <a class="button is-light" href="student-details.html">Volver a Detalles del Estudiante</a>
+        </div>
+    </section>
+</body>
+</html>
+

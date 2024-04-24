@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichas de Estudiantes - Sistema de Convivencia Escolar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Para iconos -->
+</head>
+<body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="dashboard.html">
+                <img src="Logo-colegiosxxi.svg" alt="Logo del Colegio" style="max-height: 50px;">
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="dashboard.html">Inicio</a>
+                <a class="navbar-item" href="students.html">Fichas de Estudiantes</a>
+                <a class="navbar-item" href="logbook.html">Bitácora-Calendario</a>
+                <a class="navbar-item" href="settings.html">Configuraciones</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="index.html">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Fichas de Estudiantes</h1>
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    <input class="input" type="text" placeholder="Buscar estudiante por nombre, curso, etc.">
+                </div>
+                <div class="control">
+                    <button class="button is-info">
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <span>Buscar</span>
+                    </button>
+                </div>
+            </div>
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Curso</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>10° A</td>
+                        <td>juan.perez@example.com</td>
+                        <td>
+                            <a class="button is-small is-info" title="Ver Detalles" href="student-details.html">
+                                <span class="icon"><i class="fas fa-eye"></i></span>
+                            </a>
+                            <a class="button is-small is-primary" title="Editar" href="edit-student.html">
+                                <span class="icon"><i class="fas fa-edit"></i></span>
+                            </a>
+                            <button class="button is-small is-danger" title="Eliminar" onclick="toggleModal('delete-modal', true)">
+                                <span class="icon"><i class="fas fa-trash"></i></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="add-student.html" class="button is-success">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span>Agregar Nuevo Estudiante</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Modal de Eliminación -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Confirmar Eliminación</p>
+                <button class="delete" aria-label="close" onclick="toggleModal('delete-modal', false)"></button>
+            </header>
+            <section class="modal-card-body">
+                ¿Estás seguro de que quieres eliminar este estudiante?
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger" onclick="deleteStudent()">Eliminar</button>
+                <button class="button" onclick="toggleModal('delete-modal', false)">Cancelar</button>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(modalId, isVisible) {
+            const modal = document.getElementById(modalId);
+            if (isVisible) {
+                modal.classList.add('is-active');
+            } else {
+                modal.classList.remove('is-active');
+            }
+        }
+
+        function deleteStudent() {
+            console.log("Estudiante eliminado"); // Aquí se debe implementar la lógica de eliminación real
+            toggleModal('delete-modal', false);
+        }
+    </script>
+    <div class="buttons">
+        <a class="button is-light" href="dashboard.html">Volver al Inicio</a>
+    </div>
+</body>
+</html>
